@@ -1,0 +1,230 @@
+/* =============================== */
+/* 1. Base dan Layout */
+/* =============================== */
+
+.app {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.app .main {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.app h4 {
+    color: #333;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* =============================== */
+/* 2. Input dan Form */
+/* =============================== */
+
+.app .main div {
+    margin-bottom: 15px;
+}
+
+.app label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+}
+
+.app input[type="text"],
+.app select,
+.app input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+.app input[type="file"] {
+    padding: 5px;
+}
+
+/* =============================== */
+/* 3. Tombol Umum */
+/* =============================== */
+
+.app .submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.app .submit:hover {
+    background-color: #0056b3;
+}
+
+.app #btn-ocr-test {
+    padding: 8px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background-color 0.3s;
+}
+
+.app #btn-ocr-test:hover {
+    background-color: #1e7e34;
+}
+
+/* =============================== */
+/* 4. Loading Overlay */
+/* =============================== */
+
+/* Overlay: Membuat layar gelap dan menutupi semua konten saat loading */
+.app .overlay-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Warna semi-transparan */
+    display: none; /* Disembunyikan secara default, dikontrol oleh JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Pastikan di atas elemen lain */
+}
+
+/* Spinning Loading Element */
+.app .spinning-loading { 
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3; /* Warna lingkaran luar */
+    border-top: 5px solid #3498db; /* Warna lingkaran yang berputar (biru) */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Panggil animasi spin */
+}
+
+/* Keyframes untuk Animasi Putar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =============================== */
+/* 5. Voucher Display (Overlay Style) */
+/* =============================== */
+.app .voucher-display {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    display: none; 
+    text-align: center;
+    flex-direction: column; 
+    gap: 10px;
+    
+    min-width: 280px; 
+    max-width: 90vw;  
+}
+
+/* 1. Judul Overlay (Voucher Code) */
+.app .voucher-title {
+    font-size: 1.5em; 
+    font-weight: bold; 
+    color: #007bff; 
+    margin: 0 auto 5px auto; /* Pusat horizontal */
+    display: block;
+    width: max-content; /* Mencegah wrapping pada Judul */
+}
+
+/* 2. Label Kode Alias (Kode Alias Anda:) */
+.app .voucher-display label {
+    font-size: 1.1em;
+    color: #007bff;
+    display: block;
+    font-weight: normal; 
+    width: max-content; /* Mencegah wrapping pada Label */
+    margin: 0 auto; /* Pusat horizontal */
+}
+
+/* 3. Kode Voucher Terenkripsi (H3) - PERBAIKAN UTAMA */
+.app .voucher-display h3 {
+    background-color: #e9ecef;
+    color: #333;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 1.2em;
+    
+    /* === KUNCI MAX-CONTENT === */
+    width: max-content; /* Memastikan lebar sesuai dengan konten terpanjang (kode) */
+    max-width: 100%;    /* Batasi agar tidak melebihi lebar kontainer induk */
+    display: block;     
+    white-space: nowrap; /* Mencegah teks memotong ke baris baru */
+    overflow-x: auto;    /* Tambahkan scrollbar horizontal jika kode melebihi max-width */
+    /* ========================= */
+    
+    margin: 10px auto; /* Pusat horizontal */
+}
+
+/* 4. Tombol Copy */
+.app .copy-button {
+    /* Style tombol (tidak perlu max-content karena ini tombol block) */
+    margin: 15px auto 5px auto; /* Pusat horizontal */
+    display: block; /* Agar margin auto bekerja */
+    padding: 10px 20px; 
+    background-color: #28a745; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* =============================== */
+/* 6. Debug dan Preformatted Text */
+/* =============================== */
+
+.app .debug-section {
+    /* Menyembunyikan seluruh bagian debug secara permanen */
+    display: none !important; 
+}
+
+.app .debug-section h4 {
+    margin-top: 20px;
+    color: #d9534f;
+}
+
+.app #ocr-output {
+    margin-top: 10px;
+    font-size: 0.9em;
+    font-family: 'Courier New', Courier, monospace;
+    max-height: 200px;
+    overflow-y: auto;
+    /* Style yang sebelumnya inline pada <pre> */
+    white-space: pre-wrap; 
+    background-color: #eee; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+}
