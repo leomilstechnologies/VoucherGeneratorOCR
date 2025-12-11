@@ -83,14 +83,19 @@ jQuery(document).ready(function( $ ){
      * Mengirim teks yang diekstrak ke server WordPress (admin-ajax.php).
      */
     async function sendValidationToBackend(extractedText) {
-        
+        if (typeof VoucherAjax === 'undefined') {
+	        console.error("VoucherAjax object not found. wp_localize_script failed.");
+	        alert("Kesalahan konfigurasi. Objek AJAX tidak ditemukan.");
+	        return;
+	    }
         try {
             const response = await $.ajax({
                 url: ajaxurl, // Variabel global yang disuntikkan oleh PHP
                 type: 'POST',
                 data: {
                     action: 'validate_and_generate_voucher',
-                    extracted_text: extractedText
+                    extracted_text: extractedText,
+					security: VoucherAjax.nonce
                 } 
             });
 
