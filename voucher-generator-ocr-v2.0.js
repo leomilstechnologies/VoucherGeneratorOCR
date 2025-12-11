@@ -90,7 +90,7 @@ jQuery(document).ready(function( $ ){
 	    }
         try {
             const response = await $.ajax({
-                url: ajaxurl, // Variabel global yang disuntikkan oleh PHP
+                url: VoucherAjax.ajaxurl, // Variabel global yang disuntikkan oleh PHP
                 type: 'POST',
                 data: {
                     action: 'validate_and_generate_voucher',
