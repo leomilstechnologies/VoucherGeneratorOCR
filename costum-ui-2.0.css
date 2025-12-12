@@ -79,6 +79,7 @@
     color: #4b4b4c;
     border-radius: 3em;
     box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, .5);
+    margin: 0 !important;
 }
 /* =============================== */
 /* 4. Loading Overlay */
@@ -113,6 +114,7 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
 
 
 
