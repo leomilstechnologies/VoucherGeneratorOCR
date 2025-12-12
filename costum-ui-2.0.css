@@ -33,6 +33,7 @@
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
 }
 .overlay-fixed {
+    display: none;
     position: absolute;
     left: 0;
     top: 0;
@@ -41,11 +42,12 @@
     background: rgba(255,255,255 , .86);
 }
 .voucher-display {
-    display: grid;
+    display: none;
     background: #2F2F2F;
     padding: 2em;
     grid-auto-flow: row;
-    width: max-content;
+    width: max-content; 
+    height: max-content;
     border-radius: 2em;
     color: #fff !important;
 }
@@ -75,3 +77,4 @@
     border-radius: 3em;
     box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, .5);
 }
+
