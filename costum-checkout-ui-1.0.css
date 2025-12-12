@@ -28,3 +28,16 @@
     margin-right: 4px;
     opacity: .35;
 }
+tr.coupon-mils15p th {
+    display: none !important;
+}
+tr.cart-discount:before {
+    content: 'Coupon Exclusive Partnership';
+    display: block;
+    font-size: .9em;
+    letter-spacing: 0;
+    text-transform: inherit;
+    border-bottom: 1px solid #ececec;
+    line-height: 2.05;
+    padding: 10px 5px;
+}
