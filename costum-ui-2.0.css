@@ -60,8 +60,11 @@
     text-align: center;
 }
 .voucher-title {
-    margin-bottom: 2em;
+    font-size: 1.5em;
 }
+.t1 em {
+    margin: 2em 0em;
+    display: block;
 .voucher-type {
     font-size: 2em;
 }
@@ -114,6 +117,7 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
 
 
 
