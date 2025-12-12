@@ -70,6 +70,7 @@
     font-size: 1.2em;
     margin: 2em 0em;
     text-align: center;
+    color: #fff;
 }
 #btn-copy-voucher {
     background: #fff;
@@ -110,4 +111,5 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
 
