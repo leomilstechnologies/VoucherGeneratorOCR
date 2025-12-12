@@ -28,7 +28,7 @@
     margin-right: 4px;
     opacity: .35;
 }
-tr.coupon-mils15p th {
+tr.cart-discount th {
     display: none !important;
 }
 tr.cart-discount:before {
