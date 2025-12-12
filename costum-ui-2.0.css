@@ -77,4 +77,37 @@
     border-radius: 3em;
     box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, .5);
 }
+/* =============================== */
+/* 4. Loading Overlay */
+/* =============================== */
+
+/* Overlay: Membuat layar gelap dan menutupi semua konten saat loading */
+.overlay-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Warna semi-transparan */
+    display: none; /* Disembunyikan secara default, dikontrol oleh JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Pastikan di atas elemen lain */
+}
+
+/* Spinning Loading Element */
+.spinning-loading { 
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3; /* Warna lingkaran luar */
+    border-top: 5px solid #3498db; /* Warna lingkaran yang berputar (biru) */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Panggil animasi spin */
+}
+
+/* Keyframes untuk Animasi Putar */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
