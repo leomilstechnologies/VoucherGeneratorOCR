@@ -32,3 +32,46 @@
     overflow: hidden;
     box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
 }
+.overlay-fixed {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(255,255,255 , .86);
+}
+.voucher-display {
+    display: grid;
+    background: #2F2F2F;
+    padding: 2em;
+    grid-auto-flow: row;
+    width: max-content;
+    border-radius: 2em;
+    color: #fff !important;
+}
+.voucher-display label {
+    color: #fff !important;
+}
+.voucher-display .t1, .voucher-display .t2{
+    text-align: center;
+}
+.voucher-title {
+    margin-bottom: 2em;
+}
+.voucher-type {
+    font-size: 2em;
+}
+.voucher-ship {
+    font-size: 1em;
+}
+#voucher-output {
+    font-size: 1.2em;
+    margin: 2em 0em;
+    text-align: center;
+}
+#btn-copy-voucher {
+    background: #fff;
+    color: #4b4b4c;
+    border-radius: 3em;
+    box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, .5);
+}
