@@ -41,3 +41,6 @@ tr.cart-discount:before {
     line-height: 2.05;
     padding: 10px 5px;
 }
+.woocommerce-form-coupon-toggle {
+    display: none;
+}
