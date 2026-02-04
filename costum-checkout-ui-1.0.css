@@ -1,5 +1,5 @@
 .coupon .widget-title, .coupon #coupon_code, .coupon .is-form.expand.button{
-    display: none !important;
+    /*display: none !important;*/
 }
 #encrypt-voucher {
     background-color: #fff;
