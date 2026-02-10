@@ -28,7 +28,7 @@
     margin-right: 4px;
     opacity: .35;
 }
-tr.cart-discount th {
+tr.cart-discount th, tr.fee th {
     display: none !important;
 }
 tr.cart-discount:before {
@@ -43,4 +43,9 @@ tr.cart-discount:before {
 }
 .woocommerce-form-coupon-toggle {
     display: none;
+}
+tr.fee:before {
+    display: block;
+    content: 'Biaya Layanan';
+    font-size: .85em;
 }
