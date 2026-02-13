@@ -37,12 +37,6 @@ jQuery(document).ready(function( $ ){
             zones: [
                 { label: 'side_label', type: 'text', x: 0.0, y: 0.0, w: 1.0, h: 1.0 } 
             ]
-        },
-        {
-            id: 'GENERIC',
-            name: 'Mode Umum',
-            keywords: [],
-            zones: [{ label: 'full', type: 'text', x: 0.0, y: 0.0, w: 1.0, h: 1.0 }]
         }
     ];
 
