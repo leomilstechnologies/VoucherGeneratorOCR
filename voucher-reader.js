@@ -221,20 +221,27 @@ jQuery(document).ready(function( $ ){
             
             try {
                 // Gunakan URL hasil auto-detect
-                const url = await this._getModelUrl();
+                if (!this.apiKey) return rawText;
 
-                const prompt = `Perbaiki hasil OCR Kartu Pelajar ini. \nRules:\n1. Benarkan nama institusi & nama orang.\n2. JANGAN ubah angka NIM.\n3. Hapus simbol aneh.\n\nDATA:\n${rawText}`;
-                
-                const response = await fetch(url, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                });
-
-                if (!response.ok) {
-                    console.warn("Gemini API Error:", response.status);
-                    return rawText; 
-                }
+		        if (!this.modelCache) {
+		            try {
+		                const listResp = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${this.apiKey}`);
+		                const listData = await listResp.json();
+		                if (listData.models) {
+		                    const flash = listData.models.find(m => m.name.includes('flash') && m.supportedGenerationMethods?.includes('generateContent'));
+		                    this.modelCache = flash ? flash.name : 'models/gemini-1.5-flash';
+		                }
+		            } catch (e) {
+		                this.modelCache = 'models/gemini-1.5-flash';
+		            }
+		        }
+		
+		        const prompt = `Perbaiki OCR ini (typo/format):\n\n${rawText}`;
+		        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/${this.modelCache}:generateContent?key=${this.apiKey}`, {
+		            method: 'POST',
+		            headers: { 'Content-Type': 'application/json' },
+		            body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+		        });
                 
                 const data = await response.json();
                 return data.candidates ? data.candidates[0].content.parts[0].text.trim() : rawText;
