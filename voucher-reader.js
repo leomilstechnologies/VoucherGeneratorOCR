@@ -37,6 +37,14 @@ jQuery(document).ready(function( $ ){
             zones: [
                 { label: 'side_label', type: 'text', x: 0.0, y: 0.0, w: 1.0, h: 1.0 } 
             ]
+        },
+		{
+            id: 'Pah Tsung',
+            name: 'Kartu Pah Tsung',
+            keywords: ['Pah', 'Tsung', 'pah', 'tsung'], 
+            zones: [
+                { label: 'side_label', type: 'text', x: 0.0, y: 0.0, w: 1.0, h: 1.0 } 
+            ]
         }
     ];
 
