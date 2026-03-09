@@ -160,9 +160,4 @@ jQuery(document).ready(function( $ ){
     if (btnCopyVoucher) {
         btnCopyVoucher.addEventListener('click', copyVoucherCode, false);
     }
-	
-	async function debugFuckingWordpressAjax(){
-		await sendValidationToBackend("Institut PTIQ Jakarta");
-	}
-	debugFuckingWordpressAjax();
 });
