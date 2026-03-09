@@ -74,7 +74,7 @@ jQuery(document).ready(function( $ ){
             const processed = await this._preprocessImage(imageFile);
             
             // 2. Scan QR
-            const qrResult = this._scanQR(processed);
+            //const qrResult = this._scanQR(processed);
 
             // 3. Tesseract OCR
             const tesseractResult = await Tesseract.recognize(
@@ -82,14 +82,16 @@ jQuery(document).ready(function( $ ){
                 'eng', 
                 { logger: m => console.log('OCR Progress:', parseInt(m.progress * 100) + '%') }
             );
-
+				
             // 4. Identifikasi & Filter Zona
+			/*
             const extraction = this._validateAndExtract(
                 tesseractResult.data, 
                 qrResult, 
                 processed.width, 
                 processed.height
             );
+			
 
             console.log(`[Engine] Template: ${extraction.templateName}`);
             
@@ -101,9 +103,11 @@ jQuery(document).ready(function( $ ){
                 throw new Error("Teks tidak terbaca jelas.");
             }
 
+			*/
+
             // 5. Gemini AI Cleaning (Dengan Auto-Detect Model)
-            const cleanedText = await this._refineWithAI(extraction.finalText);
-			console.log(cleanedText, extraction);
+            const cleanedText = await this._refineWithAI(tesseractResult.data.text);
+			console.log(cleanedText, tesseractResult.data.text);
             return cleanedText;
         }
 
